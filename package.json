@@ -20,17 +20,19 @@
     "build:cli": "browserify --node -o dist/cli.js lib/cli.js",
     "build:cz": "browserify --node -o dist/cz.js --standalone prompter lib/cz.js",
     "build:readme": "mmarkdown",
-    "build:binaries": "mkdirp binaries && pkg lib/cli.js --out-path binaries",
+    "build:binaries": "mkdirp binaries && pkg -t node14-linux-x64 lib/cli.js --out-path binaries",
     "test": "jest --maxWorkers 2",
     "test:dev": "jest --watch",
     "test:coverage": "jest --coverage",
     "release": "semantic-release",
-    "eslint": "eslint lib/*.js"
+    "eslint": "eslint lib/*.js",
+    "eslint:fix": "eslint --fix lib/*.js"
   },
   "devDependencies": {
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "any-shell-escape": "0.1.1",
+    "babel-eslint": "^10.1.0",
     "browserify": "17.0.0",
     "chai": "4.3.4",
     "chalk": "4.1.2",
